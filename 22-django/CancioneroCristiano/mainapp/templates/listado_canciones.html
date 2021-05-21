@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{artista.nombre}} {% endblock %}
+
+{% block container %} 
+
+          <div class="card" id="card-nombre-artista">
+            <div class="card-body">
+                <div class="row col-lg-10">
+                    <div class="col-lg-2" id="content-logo">
+                        <img src="{{artista.imagen}}" alt=""class="foto-cantante img-fluid" >
+                    </div>
+                    <div class="col-lg-10">
+                        <h1 class="display-4">{{artista.nombre}}</h1>
+                        <h5 class="enlace-biografia"><a href="{% url 'biografia' artista.nombre %}">  Biografía</a></h5>
+                    
+                        <form action="{% url 'listado_buscar' artista=artista.nombre  %}" method="POST">
+                          {% csrf_token %}
+                            <div class="form-row align-items-center">
+                              <div class="col-lg-6">
+                                <input type="search" class="form-control mb-2 " name="buscar_cancion" id="buscador-cancion" placeholder="Buscar canción de {{artista.nombre}}">
+                              </div>
+                              
+                              <div class="col-lg-2">
+                                <button type="submit" class="btn btn-primary mb-2 btn-buscar">Buscar</button>
+                              </div>
+                            </div>
+                          </form>
+                    
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+              
+
+
+
+        <div class="container">
+
+            <div class="row row-offcanvas row-offcanvas-right">
+
+                <div class="col-sm-12 col-md-2 col-lg-2 sidebar-offcanvas" id="sidebar">
+
+                <div id="publicidad-left">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                    </div>
+                </div>
+
+                </div>
+
+                <div class="col-12 col-md-7">
+
+                    <div class="list-group">
+                        <button href="#" class="list-group-item list-group-item-action active" id="barra-canciones">
+                          {{artista.num_canciones}} Canciones
+                        </button>
+                        {% for cancion in canciones %}
+                          <a href="{% url 'cancion' id_cancion=cancion.id %}" class="list-group-item list-group-item-action"> <strong> {{cancion.titulo}} </strong> </a>
+                          
+                        {% endfor %}
+                    </div>
+
+
+                </div>
+                <!--/span-->
+
+                <div class="col-sm-12 col-md-3 col-lg-3 sidebar-offcanvas" id="sidebar">
+
+                    <div id="lista-artistas">
+
+                        {% for artista in artistas  %}
+
+                      <div class="col text-right" id="content-artista">
+                            <a href="{% url 'listado' artista=artista.nombre %}">
+                                <img src=" {{artista.imagen}} " class="img-list-artista" alt="" width="60px" height="60px">
+                                  <h5 class="card-title"> {{artista.nombre}} </h5> 
+                            </a>
+                        </div>
+                      
+                      {% endfor %}
+
+                    </div>
+
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/.container-->
+{% endblock  %}

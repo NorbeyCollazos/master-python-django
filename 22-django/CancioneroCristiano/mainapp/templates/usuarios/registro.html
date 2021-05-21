@@ -1,0 +1,45 @@
+
+{% extends 'layout.html' %}
+
+{% block title %} {{titulo}} {% endblock %}
+
+{% block container %}
+
+
+            
+<div class="container">
+
+<h1> {{titulo}}</h1>
+
+
+{% if formulario_registro.errors  %}
+    <div class="alert alert-danger" role="alert">
+        {{formulario_registro.errors}}
+    </div>
+{% endif %}
+
+
+<form method="POST" actions="" class="formulario_registro_usuarios">
+
+    {% csrf_token %}
+
+    {% for field in formulario_registro %}
+       {{field.label}}<br>
+        {{field}}<br>
+    {% endfor %}
+  
+
+    
+    <br><br>
+    <input type="submit" class="btn btn-primary" value="Registrarse"/>
+
+
+</form>
+
+
+            
+          
+</div>
+
+{% endblock  %}
+

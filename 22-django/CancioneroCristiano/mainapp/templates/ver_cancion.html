@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{cancion.titulo}} {% endblock %}
+
+{% block container %} 
+
+
+        <div class="container">
+
+            <div class="row row-offcanvas row-offcanvas-right" id="content-cancion">
+
+                <div class="col-sm-12 col-md-2 col-lg-2 sidebar-offcanvas" id="sidebar">
+
+                  <button type="button" class="btn btn-primary btn-block" id="boton-opciones" ><i class="fas fa-plus"></i> Opciones</button>
+                  
+                  <div id="content-botones-opciones">
+                    <button type="button" class="btn btn-outline-secondary btn-block" id="transposeUp"><i class="fas fa-sort-amount-up-alt"></i> Subir 1/2 tono</button>
+                    <button type="button" class="btn btn-outline-secondary btn-block" id="transposeDown"><i class="fas fa-sort-amount-down"></i> Bajar 1/2 tono</button>
+                    <button type="button" class="btn btn-outline-secondary btn-block" id="escuchar_btn"><i class="fab fa-youtube"></i> Escuchar</button>
+                    <button type="button" class="btn btn-outline-secondary btn-block" id="print_btn" ><i class="fas fa-print"></i> Imprimir</button><br>
+                  </div>
+
+
+                  <div id="publicidad-left">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                    </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-12 col-md-7" id="pagina" >
+
+                   <h4> {{cancion.titulo}} </h4>
+                   <h5> <a href="{% url 'listado' artista=cancion.artista %}"> {{cancion.artista}} </a> </h5>
+              
+                   <hr>
+
+                   <div class="card" id="content-video">
+
+                   <button type="button" class="close" aria-label="Close">
+                      <i class="fas fa-times-circle"></i>
+                    </button>
+
+                      <div class="card-body">
+                      
+                        <iframe width="100%" height="315" src=" {{ "https://www.youtube.com/embed/"|add:cancion.url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                      </div>
+                    </div>
+
+                   <pre> {{letra | safe}} </pre>
+
+                </div>
+                <!--/span-->
+
+                <div class="col-sm-12 col-md-3 col-lg-3 sidebar-offcanvas" id="sidebar">
+
+                    <div class="list-group text-right">
+
+                    <button class="list-group-item active" id="barra-canciones">Canciones de {{cancion.artista}} </button>
+                       
+                        {% for cancion in canciones %}
+                          <a href="{% url 'cancion' id_cancion=cancion.id %}" class="list-group-item "> {{cancion.titulo}} </a>
+                          
+                        {% endfor %}
+                    </div>
+
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/.container-->
+{% endblock  %}
+
+
+        <!-- Optional JavaScript -->
+
+        
+

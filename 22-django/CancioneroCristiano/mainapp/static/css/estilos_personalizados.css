@@ -1,0 +1,214 @@
+
+.chordNone, .chord1{
+    color: #ff5722;
+    font-weight: bold;
+}
+
+#content-video{
+    display: none;
+}
+
+pre{
+    border: none;
+}
+
+.textarea_cancion{
+    font-size: 30px;
+}
+
+.label_user{
+    color: violet;
+}
+
+.btn-buscar{
+    background-color: #F37E21 !important;
+    color: wheat;
+    font-weight: bold;
+    border: none !important;
+}
+
+.nav-link{
+    color: whitesmoke !important;
+}
+
+.nav-link:hover{
+    border-bottom: whitesmoke 3px ridge;
+}
+
+.jum-inicial{
+    background-color: #FFEEE8;
+}
+
+.center-cropped {
+    object-fit: cover; /* Do not scale the image */
+    object-position: 30% 5%; /* Center the image within the element */
+    height: 180px;
+    width: 100%;
+}
+
+.foto-cantante{
+    object-fit: cover; /* Do not scale the image */
+    object-position: 30% 5%; /* Center the image within the element */
+    height: 100px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#content-artista{
+    margin-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 25px;
+}
+
+#cnt-artista:hover{
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+}
+
+#card-nombre-artista{
+    margin-bottom: 15px;
+    background-color: #FFEEE8;
+}
+
+#barra-canciones{
+    background-color: #ff5722;
+    border: none;
+}
+
+
+
+#content-cancion{
+    margin-top: 15px;
+}
+
+#buscador-cancion{
+    border-radius: 25px !important;
+}
+
+
+/*PARA LOS ESTILOS DEL SCROLLBAR DE CONTENEDOR DE ARTISTAS */
+#lista-artistas{
+    width:100%; 
+    height:550px; 
+    overflow: scroll; 
+    overflow-x: hidden;
+    
+}
+
+#lista-artistas img{
+    border-radius: 50%;
+}
+
+#lista-artistas::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+#lista-artistas::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+#lista-artistas::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+/* Cambiamos el fondo cuando esté en active */
+#lista-artistas::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+#lista-artistas::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+/* Cambiamos el fondo cuando esté en active o hover */
+#lista-artistas::-webkit-scrollbar-track:hover,
+#lista-artistas::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+
+#boton-opciones{
+    display: none;
+    background-color: #ff5722;
+    border: none;
+}
+
+#botones-sig-ant a{
+    background-color: #ff5722;
+    border: none;
+    margin-bottom: 25px;
+}
+
+.enlace-biografia{
+    margin-left: 10px;
+}
+.parrafo-biografia{
+    display: block;
+    text-align: justify;
+}
+
+
+
+
+
+
+footer{
+    background-color: #333333 !important;
+    color: whitesmoke;
+}
+
+footer p{
+    text-align: right;
+    padding: 15px;
+}
+
+
+
+
+
+
+  @media screen and (min-width: 300px) and (max-width: 600px){
+
+    .display-4{
+        font-size: x-large;
+        font-weight: bold;
+    }
+    .lead{
+        font-size: small;
+    }
+
+    #content-logo{
+        display: none;
+    }
+
+    #content-botones-opciones{
+        display: none;
+        margin-top: 10px;
+    }
+
+    #boton-opciones{
+        display: block;
+    }
+
+    #publicidad-izquierda{
+        display: none;
+    }
+
+    #publicidad-left{
+        display: none;
+    }
+    
+
+
+
+  }
+  
+  @media screen and (min-width: 800px) {
+    
+  }

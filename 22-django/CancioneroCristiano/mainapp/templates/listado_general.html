@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{total_canciones}} Canciones {% endblock %}
+
+{% block container %} 
+
+
+
+        <div class="container" style="margin-top:15px;">
+
+            <div class="row row-offcanvas row-offcanvas-right">
+
+                <div class="col-sm-12 col-md-2 col-lg-2 sidebar-offcanvas" id="sidebar">
+
+                <div id="publicidad-left">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-12 col-md-7">
+
+                    <div class="list-group">
+                        <button href="#" class="list-group-item list-group-item-action active" id="barra-canciones">
+                        <strong> {{total_canciones}}</strong> Canciones<br>
+                        <strong> {{total_artistas}}</strong> Artistas
+                        </button>
+                        {% for cancion in canciones %}
+                          <a href="{% url 'cancion' id_cancion=cancion.id %}" class="list-group-item list-group-item-action"><strong> {{cancion.titulo}} </strong> - <i> {{cancion.artista}} </i> </a>
+                          
+                        {% endfor %}
+                    </div>
+
+
+                </div>
+                <!--/span-->
+
+                <div class="col-sm-12 col-md-3 col-lg-3 sidebar-offcanvas" id="sidebar">
+
+                    <div id="lista-artistas">
+
+                        {% for artista in artistas  %}
+
+                      <div class="col text-right" id="content-artista">
+                            <a href="{% url 'listado' artista=artista.nombre %}">
+                                <img src=" {{artista.imagen}} " class="img-list-artista" alt="" width="60px" height="60px">
+                                  <h5 class="card-title"> {{artista.nombre}} </h5> 
+                            </a>
+                        </div>
+                      
+                      {% endfor %}
+
+                    </div>
+
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/.container-->
+{% endblock  %}

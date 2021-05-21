@@ -1,0 +1,98 @@
+
+{% extends 'layout.html' %}
+
+{% block title %} {{titulo}} {% endblock %}
+
+{% block container %}
+
+<div class="jumbotron jumbotron-fluid jum-inicial">
+                <div class="container">
+                    <div class="row">
+                    <div class="col-lg-2" id="content-logo">
+                    {% load static %}
+                        <img src="{% static 'images/icono.png' %}" alt="" width="120px" height="120px">
+                    </div>
+                    <div class="col-lg-10">
+                        <h1 class="display-4">{{titulo}}</h1>
+                        <p class="lead">Encuentra una grán variedad de música cristiana con su letra y acordes</p>
+                    
+                        <form action="{% url 'index_filtro' %}" method="POST">
+
+                            {% csrf_token %}
+                    
+                            <div class="form-row align-items-center">
+                              <div class="col-lg-6"> 
+                                <input type="search" name="nombre_artista" class="form-control mb-2 " id="buscador-cancion" placeholder="Buscar Artista">
+                              </div>
+                              
+                              <div class="col-lg-2">
+                                <button type="submit" class="btn btn-primary mb-2 btn-buscar">Buscar</button>
+                              </div>
+                            </div>
+                            
+                          </form>
+
+                    </div>
+                </div>
+                  
+                </div>
+              </div>
+
+              
+
+<div class="container">
+
+
+            <div class="row row-offcanvas row-offcanvas-right">
+
+                <div class="col-12 col-md-10">
+
+
+                    <div class="row">
+
+                      {% for artista in artistas  %}
+
+                      <div class="col-sm-12 col-md-6 col-lg-4" id="content-artista">
+                            <a href="{% url 'listado' artista=artista.nombre %}">
+                            <div class="card text-center" id="cnt-artista">
+                                <img src=" {{artista.imagen}} " class="card-img-top center-cropped" alt="" width="100%" height="120px">
+                                <div class="card-body">
+                                  <h5 class="card-title"> {{artista.nombre}} </h5>
+                                  <p class="card-text"> {{artista.num_canciones}} Canciones </p>
+                                </div>
+                              </div>
+                            </a>
+                        </div>
+                      
+                      {% endfor %}
+                        
+                        
+                    
+                        
+
+                    </div>
+                    <!--/row-->
+                </div>
+                <!--/span-->
+
+                <div class="col-sm-12 col-md-2 col-lg-2 sidebar-offcanvas" id="sidebar">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                    </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            </div>
+
+{% endblock  %}
+

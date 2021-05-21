@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block title %} Biografía de {{artista.nombre}} {% endblock %}
+
+{% block container %}   
+
+          <div class="card" id="card-nombre-artista">
+            <div class="card-body">
+                <div class="row col-lg-10">
+                    <div class="col-lg-2" id="content-logo">
+                        <img src="{{artista.imagen}}" alt="" class="foto-cantante img-fluid">
+                    </div>
+                    <div class="col-lg-10">
+                        <h3 class="display-4">Biografía de {{artista.nombre}}</h3>
+                    
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+              
+
+
+
+        <div class="container">
+
+            <div class="row row-offcanvas row-offcanvas-right">
+
+                <div class="col-sm-12 col-md-2 col-lg-2 sidebar-offcanvas" id="sidebar">
+
+                <div id="publicidad-left">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                    </div>
+                </div>
+
+                </div>
+
+                <div class="col-12 col-md-8">
+
+                    <p class="parrafo-biografia">{{artista.biografia| safe }}</p>
+
+
+                </div>
+                <!--/span-->
+
+                <div class="col-sm-12 col-md-2 col-lg-2 sidebar-offcanvas" id="sidebar">
+
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                    </div>
+
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/.container-->
+{% endblock  %}

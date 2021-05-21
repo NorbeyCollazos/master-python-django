@@ -1,0 +1,33 @@
+django-admin startproject nombreDelProyecto	---->para crear el proyecto
+
+
+
+python manage.py migrate	---->para migrar el proyecto
+python manage.py runserver	---->para arrancar el servidor
+python manage.py startapp nombredelApp	---->para crear una app
+
+python manage.py makemigrations	---->para crear una migracion
+python manage.py sqlmigrate nombreapp numeromigracion	---->para migrar el código sql
+python manage.py migrate 	---->para migrar 
+
+python manage.py createsuperuser 	---->para para crear un superusuario en django 
+
+python manage.py collectstatic		---->para crear los static y mmigrar. se debe tener en cuenta
+que se debe colocar la siguiente linea de codigo en los settings del proyecto: STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+
+
+INSERT INTO mainapp_canciones( titulo, cancion, autor, artista, url )  //esto es para pasar los datos de una tabla a otra
+SELECT titulo, cancion, autor, artista, url FROM Canciones_temporal
+
+
+DELETE FROM sqlite_sequence WHERE name='mainapp_canciones'  //esto es para resetear el autoincrementable en sqlite
+
+| safe 
+
+
+pip install Pillow   --->para la ImageField
+
+
+UPDATE Artistas SET estado="" WHERE estado is NULL   //Para colocar en blanco los campos NULL
